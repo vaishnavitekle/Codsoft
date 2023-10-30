@@ -1,1 +1,67 @@
 
+import java.util.Scanner;
+public class Grades {
+   public static void grade()
+   {
+   //public static void main(String args[]) {
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter Number of subjects you have");
+      int n=sc.nextInt();
+      int a[]=new int[n];
+      for(int i=0;i<n;i++)
+      {
+         System.out.println("Enter the marks out of 100 in"+" subject "+(i+1));
+         a[i]=sc.nextInt();
+      }
+      int sum=0,average;
+      for(int i=0;i<n;i++)
+      {
+         sum=sum+a[i];
+      }
+      average=sum/n;
+      System.out.println();
+      System.out.println("Total of your marks ::"+sum);
+      System.out.println("Average of your marks ::"+average);
+      char grade;
+
+      if(average>=80){
+         grade = 'A';
+      }else if(average>=60 && average<80){
+         grade = 'B';
+      }
+      else if(average>=40 && average<60){
+         grade = 'C';
+      }
+      else {
+         grade = 'D';
+      }
+
+      switch(grade) {
+         case 'A' :
+            System.out.println("Excellent!");
+            break;
+         case 'B' :
+         case 'C' :
+            System.out.println("Well done");
+            break;
+         case 'D' :
+            System.out.println("You passed");
+         case 'F' :
+            System.out.println("Better try again");
+            break;
+         default :
+         System.out.println("Invalid grade");
+      }
+      System.out.println("Your grade is " + grade);
+   }
+public static void main(String args[]) {
+   Scanner sc = new Scanner(System.in);
+		char ch;
+		do
+		{
+		 grade();
+		System.out.println("do you want to calculate the grades again if yes then press y/Y");
+	    ch=sc.next().charAt(0);
+		}while(ch=='y' ||ch=='Y');
+}
+}
